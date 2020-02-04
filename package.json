@@ -14,7 +14,8 @@
   "author": "Kameryn West",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "*",
+    "@types/ws": "^7.2.1",
+    "discord.js": "discordjs/discord.js",
     "dotenv": "*",
     "log-to-file": "*",
     "node-gyp": "^6.0.0"

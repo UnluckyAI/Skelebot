@@ -40,6 +40,7 @@ export default class Bot extends Discord.Client {
       const JOIN_MSG = "Thanks for the invite, but how did you find me? OwO"
 
       // Send a DM to the user that invited the bot. If that breaks for some reason, dm the owner.
+      console.log(`Joined guild ${guild.name} with ID ${guild.id}`)
       guild.fetchAuditLogs()
         .then(audit => {
           const entry = audit.entries.first()
@@ -76,17 +77,18 @@ export default class Bot extends Discord.Client {
 
     const presArr = [
       `@${user.username} help`,
-      `in ${this.guilds.size} guilds`,
-      `with discord.js`
+      `Chilling in ${this.guilds.size} guilds`,
+      `Reading Coding for Dummies`,
+      `Waiting to be mentioned with @${user.username}`
     ];
 
-    user
-      .setPresence({ game:
-        { name: presArr[Math.floor(Math.random() * presArr.length)], 
-          type: "PLAYING"
-        },
-        status: "online" })
-      .catch(console.error);
+    user.setPresence( 
+      { activity: {
+        name: presArr[Math.floor(Math.random()*presArr.length)],
+        type: "CUSTOM_STATUS"
+      },
+      status: "online"})
+    .catch(console.error);
   };
 
   async start() {

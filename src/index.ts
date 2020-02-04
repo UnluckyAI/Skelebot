@@ -1,8 +1,8 @@
-import RB from "./bot"
+import Bot from "./bot"
 import * as logger from "log-to-file"
 
-const RoleBot = new RB()
+const RunningBot = new Bot()
 
-RoleBot.start().catch(e => {
+RunningBot.start().catch(e => {
   logger(`Error occurred during bot runtime: ${e}`, 'errors.log')
 })

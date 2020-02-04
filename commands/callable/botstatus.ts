@@ -1,4 +1,4 @@
-import { Message, RichEmbed, GuildMember } from "discord.js";
+import { Message, MessageEmbed, GuildMember } from "discord.js";
 import * as OS from "os";
 import RoleBot from "../../src/bot";
 
@@ -7,7 +7,7 @@ export default {
   name: "botstatus",
   args: "",
   run: (message: Message, _args: string[], client: RoleBot) => {
-    const embed = new RichEmbed();
+    const embed = new MessageEmbed();
     let userCount = 0;
     let channelCount = 0;
 
@@ -19,7 +19,7 @@ export default {
     embed
       .setColor(16711683)
       .setTitle(`**Bot Status**`)
-      .setThumbnail(client.user!.avatarURL || "")
+      .setThumbnail(client.user!.avatarURL() || "")
       .addField(`**Bot Developer:**`, `AndroidWaifu`, true)
       .addField(`**The bot is in:**`, `${client.guilds.size} servers`, true)
       .addField(`**The bot is watching:**`, `${userCount} users`, true)
