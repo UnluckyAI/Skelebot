@@ -1,0 +1,29 @@
+{
+  "name": "gerryboard",
+  "version": "1.0.0",
+  "description": "Just learnin stuff",
+  "main": "build/src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:dist": "tsc -p tsconfig.json",
+    "clean": "rimraf build/",
+    "prestart": "npm run build",
+    "start": "node build/src/index.js",
+    "watch": "tsc --watch"
+  },
+  "author": "Kameryn West",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "*",
+    "dotenv": "*",
+    "log-to-file": "*",
+    "node-gyp": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "*",
+    "@types/node": "^12.7.12",
+    "rimraf": "*",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.4"
+  }
+}

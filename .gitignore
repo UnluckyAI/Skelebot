@@ -1,0 +1,9 @@
+.env
+node*
+roles.sql*
+*.js
+build/
+*.log
+.idea/
+.vscode
+errors.log
