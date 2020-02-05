@@ -1,4 +1,4 @@
-import Bot, { CommandCollection } from "../src/bot"
+import Bot from "../src/bot"
 import * as fs from "fs"
 
 export default (client: Bot) => {
