@@ -1,5 +1,5 @@
 # Skelebot
-An easy typescript Discord bot, based off of frameworks from Dylan Warren. This is just a skeleton that includes four commands, and is particularly useful unless you plan to manually add commands.
+An easy typescript Discord bot, based off of frameworks from Dylan Warren. This is just a skeleton that includes four commands, and is particularly useless unless you plan to manually add commands.
 
 The "prefix" to the bot is it's mention. Ex:
 @Skelebot status
