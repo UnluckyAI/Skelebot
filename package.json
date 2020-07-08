@@ -1,7 +1,7 @@
 {
-  "name": "gerryboard",
+  "name": "idlebot-beta",
   "version": "1.0.0",
-  "description": "Just learnin stuff",
+  "description": "An idle game but actually a discord bot.",
   "main": "build/src/index.js",
   "scripts": {
     "build": "tsc",

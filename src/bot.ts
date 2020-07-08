@@ -37,37 +37,10 @@ export default class Bot extends Discord.Client {
 
     this.on("message", (message): void => msg(this, message as Discord.Message));
     this.on("guildCreate", (guild): void => {
-      const JOIN_MSG = "Thanks for the invite, but how did you find me? OwO"
-
-      // Send a DM to the user that invited the bot. If that breaks for some reason, dm the owner.
-      console.log(`Joined guild ${guild.name} with ID ${guild.id}`)
-      guild.fetchAuditLogs()
-        .then(audit => {
-          const entry = audit.entries.first()
-
-          if(!entry) return; // No throwing
-
-          const { executor } = entry
-
-          if(!executor) return;
-          
-          executor.send(JOIN_MSG)
-        })
-        .catch(e => {
-          console.log(e)
-
-          const owner = guild.owner || guild.members.get(guild.ownerID);
-
-          if(!owner) return;
-
-          owner.send(JOIN_MSG);
-        }).catch(e => logger(`Error trying to get bot adder: ${e}`, "errors.log"));
-
       logger(
         `Joined - { guildId: ${guild.id}, guildName: ${guild.name}, ownerId: ${guild.ownerID}, numMembers: ${guild.memberCount}}`,
         "guilds.log"
       );
-
     });
   }
 
@@ -77,7 +50,7 @@ export default class Bot extends Discord.Client {
 
     const presArr = [
       `@${user.username} help`,
-      `Chilling in ${this.guilds.size} guilds`,
+      `Chilling in ${this.guilds.cache.size} guilds`,
       `Reading Coding for Dummies`,
       `Waiting to be mentioned with @${user.username}`
     ];
