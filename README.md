@@ -19,3 +19,7 @@ The "prefix" to the bot is it's mention. Ex:
 # Adding Commands
 To add a command, you create a default export that conforms to the Command interface defined in Bot.ts. It requires a can_run(), run(), desc, args, and name.
 
+# Making the ENV file
+
+If on Linux, you should use `nano env` in the root directory. Then, put `TOKEN="{Your Token}"`.
+
