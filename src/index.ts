@@ -1,8 +1,8 @@
-import Bot from "./bot"
-import * as logger from "log-to-file"
+import Bot from "./bot";
+import { log } from "./vars";
 
-const RunningBot = new Bot()
+const bot = new Bot();
 
-RunningBot.start().catch(e => {
-  logger(`Error occurred during bot runtime: ${e}`, 'errors.log')
+bot.start().catch((e: any) => {
+  log(`${e}`, "ERROR");
 })

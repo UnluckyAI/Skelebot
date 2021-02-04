@@ -1,9 +1,4 @@
 .env
-node*
-roles.sql*
-*.js
+node_modules/
 build/
 *.log
-.idea/
-.vscode
-errors.log
