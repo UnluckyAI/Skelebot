@@ -33,12 +33,17 @@ The "prefix" to the bot is it's mention. Ex:
 ## Configuration/Environmental Variables
 
   Any configurable options for the bot should be put into a file called `.env`. More about configuring this file can be found at https://www.npmjs.com/package/dotenv. In order for the bot to function, you **must** add the bot's login token into the ENV file (formatted as `TOKEN="{Your Token}"`) or it will be unable to login to Discord. The only other current configuration option found in the .env file is "LOG_LVL". More information on this is given below.
+  
 #### Log Level (LOG_LVL)
 
 **Log level is the lowest type of message that should be logged to both the console and to `bot.log`. So if the log level is "INFO", then all other levels are logged. Levels are ranked below, starting at the lowest.**
 
 "INFO" - *This will be used to provide extra information that may not be needed for daily operation. For example, the bot currently logs the beginning of each file load under this level.*
+
 "DEV" - *This is a debugging tool often used while developing the bot.*
+
 "BOT" - *These are the most basic bot status updates.*
+
 "WARN" - *Anything that goes wrong with the bot that isn't so dangerous it could break the bot. For example, a command file not being loaded because of the module name being mismatched is logged as a warning.*
+
 "ERROR" - *Issues that are considered severe enough they could break the bot or cause problems.*
