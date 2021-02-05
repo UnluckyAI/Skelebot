@@ -1,7 +1,7 @@
 {
-  "name": "groupfinder",
-  "version": "1.0.0",
-  "description": "A discord bot made for MST CS Discord server, which attempts to match up people for study groups.",
+  "name": "skelebot",
+  "version": "1.1.0",
+  "description": "A very basic bot (a 'skeleton' bot) that has only minimal commands. This bot takes inspiration from Dylan Warren's (https://github.com/Uhuh) various Discord bots.",
   "main": "index.js",
   "dependencies": {
     "discord.js": "^12.5.1",

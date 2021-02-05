@@ -30,6 +30,8 @@ export const commands: Command[] = [
         return;
       }
 
+      if (group.name === "Dev" && author.id !== DEV_ID) return;
+
       embed.setDescription(`List of Commands - ${group!.name}`);
 
       let totalCommands = 0;
@@ -75,6 +77,8 @@ export const commands: Command[] = [
 
       let totalGroups = 0;
       client.groups.forEach((group) => {
+
+        if (group.name === "Dev") return;
 
         embed.addField(
           `**${group.name}**`,
