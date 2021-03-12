@@ -109,9 +109,9 @@ export class Bot extends Discord.Client {
       log(`Loading file ${file} (${((ind+1)/files.length)*100}%)`, 'INFO');
       try {
         const imported = require(`./commands/${file}`);
-        if (imported.init)
-          imported.init(this);
-        if (imported.commands)
+        if (imported.commands) {
+          if (imported.init)
+            imported.init(this);
           imported.commands.forEach((command: Command) => {
             if (!command.group) command.group = "Default";
             if (command.desc === "") command.desc = "No description"
@@ -130,6 +130,7 @@ export class Bot extends Discord.Client {
             }
             total++;
           });
+        }
         else
           throw new Error('Command file didn\'t have required "commands" export');
       } catch(error) {
