@@ -113,7 +113,9 @@ export class Bot extends Discord.Client {
           if (imported.init)
             imported.init(this);
           imported.commands.forEach((command: Command) => {
-            if (!command.group) command.group = "Default";
+            if (!command.group && imported.group)
+              command.group = imported.group;
+
             if (command.desc === "") command.desc = "No description"
             
             if (command.group === "Default" && command.name === "help")
@@ -124,7 +126,7 @@ export class Bot extends Discord.Client {
                 this.groups[groupInd].commands.set(command.name, command);
               else
                 this.groups.push({
-                  name: command.group,
+                  name: command.group ? command.group : "Default",
                   commands: new Discord.Collection<string, PartialCommand>([[command.name, command]])
                 });
             }
