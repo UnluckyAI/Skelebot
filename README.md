@@ -38,6 +38,10 @@ The "prefix" to the bot is it's mention. Ex:
   
   *The init function will not be run unless the commands export is present.*
   
+###### Group Overriding
+
+  Any commands without a `group` attribute can have their attribute set to a shared group. This is done by adding a `string` export with the name `group`. 
+  
 ## Configuration/Environmental Variables
 
   Any configurable options for the bot should be put into a file called `.env`. More about configuring this file can be found at https://www.npmjs.com/package/dotenv. In order for the bot to function, you **must** add the bot's login token into the ENV file (formatted as `TOKEN="{Your Token}"`) or it will be unable to login to Discord. The only other current configuration option found in the .env file is "LOG_LVL". More information on this is given below.
