@@ -113,8 +113,11 @@ export class Bot extends Discord.Client {
           if (imported.init)
             imported.init(this);
           imported.commands.forEach((command: Command) => {
-            if (!command.group && imported.group)
-              command.group = imported.group;
+            if (!command.group)
+              if (imported.group)
+                command.group = imported.group;
+              else
+                command.group = "Default";
 
             if (command.desc === "") command.desc = "No description"
             
