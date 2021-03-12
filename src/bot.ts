@@ -109,6 +109,8 @@ export class Bot extends Discord.Client {
       log(`Loading file ${file} (${((ind+1)/files.length)*100}%)`, 'INFO');
       try {
         const imported = require(`./commands/${file}`);
+        if (imported.init)
+          imported.init(this);
         if (imported.commands)
           imported.commands.forEach((command: Command) => {
             if (!command.group) command.group = "Default";
