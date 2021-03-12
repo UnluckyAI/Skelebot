@@ -24,12 +24,20 @@ The "prefix" to the bot is it's mention. Ex:
 
 **Eval** - *Evaluates a piece of code and returns the output.*
 
-## Adding Commands
+## Adding Command Packages
+
+###### Commands
 
   To add a command, you create a file with an export that is named `commands`. In this export should be an array of Command (interface found in `src/bot.ts`) objects. If this export is not created, the bot will not recognize the file as valid.
   
-*Side note, any commands with the group set to "Dev" will not show up in the help menu for any members that aren't the Bot Developer. Similarly, other members will be unable to run the `eval` command given above.*
+  *Side note, any commands with the group set to "Dev" will not show up in the help menu for any members that aren't the Bot Developer. Similarly, other members will be unable to run the `eval` command given above.*
+  
+###### Init
 
+  In case a command package wants to add listeners or affect the client in other ways, there is the option to add a function export which accepts a single parameter - the client. This function will be run before the bot loads all the commands.
+  
+  *The init function will not be run unless the commands export is present.*
+  
 ## Configuration/Environmental Variables
 
   Any configurable options for the bot should be put into a file called `.env`. More about configuring this file can be found at https://www.npmjs.com/package/dotenv. In order for the bot to function, you **must** add the bot's login token into the ENV file (formatted as `TOKEN="{Your Token}"`) or it will be unable to login to Discord. The only other current configuration option found in the .env file is "LOG_LVL". More information on this is given below.
